@@ -124,8 +124,8 @@ export default function Home() {
                 height={40}
                 className="h-[0.95em] w-auto"
               />
-              <span className="ml-[0.06em] font-wordmark font-normal tracking-tight">
-                Stay
+              <span className="ml-[0.06em] font-wordmark font-normal tracking-wide">
+                STAY
               </span>
             </span>
             es la solución integral para transformar la estadía y agilizar tu

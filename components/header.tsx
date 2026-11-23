@@ -18,8 +18,8 @@ export function Header() {
             priority
             className="h-10 w-auto"
           />
-          <span className="ml-1 font-wordmark text-2xl leading-none tracking-tight text-foreground">
-            Stay
+          <span className="ml-1 font-wordmark text-2xl leading-none tracking-wide text-foreground">
+            STAY
           </span>
         </Link>
 
