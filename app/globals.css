@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Escala de grises del diseño de referencia (example.txt) */
+  --color-surface-50: #f9fafb;
+  --color-surface-100: #f3f4f6;
+  --color-surface-200: #e5e7eb;
+  --color-surface-300: #d1d5db;
+  --color-surface-400: #9ca3af;
+  --color-surface-500: #6b7280;
+  --color-surface-600: #4b5563;
+  --color-surface-700: #374151;
+  --color-surface-800: #1f2937;
+  --color-surface-900: #111827;
+  --color-surface-950: #030712;
+
+  /* Sombras del diseño de referencia */
+  --shadow-soft: 0 20px 40px -15px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.06);
+  --shadow-phone: 0 40px 90px -20px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  /* Tipografía: "Stay" (wordmark) → Aveton; el resto → TikTok Sans + Geist */
+  --font-sans: "TikTok Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-tiktok: "TikTok Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-aveton: var(--font-aveton), ui-sans-serif, system-ui, sans-serif;
+  --font-geist: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    /* Cuadrícula de puntos sutil: 25% de opacidad */
+    background-image: radial-gradient(
+      circle,
+      oklch(0.2 0 0 / 0.25) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+}
+
+/* Scroll suave para los enlaces internos (#como-funciona) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Easing curves (skill emil-design-eng) */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Micro-animación: botones se elevan al hover y se comprimen al click */
+.btn-step {
+  transition: transform 160ms var(--ease-out);
+}
+.btn-step:hover {
+  transform: translateY(-1px);
+}
+.btn-step:active {
+  transform: scale(0.97);
+}
+
+/* Entrada del hero: un único momento orquestado al cargar */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-in {
+  animation: hero-in 700ms var(--ease-out) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Animaciones al hacer scroll (componente <Reveal>)
+   Solo se ocultan si hay JS (.motion en <html>), así el contenido
+   nunca queda invisible sin JavaScript ni para buscadores.
+   ------------------------------------------------------------------ */
+.motion .rv {
+  opacity: 0;
+  transform: var(--rv-from, translateY(14px));
+  transition:
+    opacity 600ms var(--ease-out) var(--d, 0ms),
+    transform 750ms var(--ease-out) var(--d, 0ms);
+}
+.motion [data-inview="true"] .rv,
+.motion .rv[data-inview="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+.rv-pop { --rv-from: translateY(8px) scale(0.94); }
+.rv-left { --rv-from: translateX(-18px); }
+.rv-right { --rv-from: translateX(18px); }
+.rv-bubble-in { --rv-from: translateY(10px) scale(0.92); transform-origin: 0% 100%; }
+.rv-bubble-out { --rv-from: translateY(10px) scale(0.92); transform-origin: 100% 100%; }
+.rv-phone { --rv-from: translate(42px, -18px) rotate(8deg); }
+.rv-draw-x { --rv-from: scaleX(0); transform-origin: 0 50%; }
+.rv-draw-y { --rv-from: scaleY(0); transform-origin: 50% 0; }
+.rv-draw-x,
+.rv-draw-y {
+  transition-duration: 300ms, 1100ms;
+}
+
+/* ------------------------------------------------------------------
+   Bucles ambientales sutiles (siguen mientras la página está quieta).
+   Usan las propiedades `translate` / `scale` para no chocar con el
+   `transform` de las animaciones de entrada.
+   ------------------------------------------------------------------ */
+@keyframes loop-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+@keyframes loop-float-sm {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+.loop-float { animation: loop-float 7s ease-in-out infinite; }
+.loop-float-sm { animation: loop-float-sm 6s ease-in-out infinite; }
+
+/* Teléfono que se acerca a la placa y se retira, en ciclo */
+@keyframes loop-tap {
+  0%, 18%, 100% { translate: 0 0; }
+  40%, 52% { translate: -10px 4px; }
+}
+.loop-tap { animation: loop-tap 3.2s var(--ease-in-out) infinite; }
+
+/* Onda NFC sincronizada con el toque del teléfono */
+@keyframes nfc-ping {
+  0%, 38% { opacity: 0; transform: scale(0.95); }
+  42% { opacity: 0.5; transform: scale(0.95); }
+  80%, 100% { opacity: 0; transform: scale(1.4); }
+}
+.rv-ping { opacity: 0; }
+.motion [data-inview="true"] .loop-ping {
+  animation: nfc-ping 3.2s var(--ease-out) infinite;
+}
+
+/* Botón elegido que "respira" como si se tocara */
+@keyframes loop-press {
+  0%, 70%, 100% { scale: 1; }
+  80% { scale: 0.96; }
+}
+.loop-press { animation: loop-press 4s var(--ease-out) infinite; }
+
+/* Sello que gira muy despacio */
+@keyframes loop-spin {
+  to { rotate: 360deg; }
+}
+.loop-spin { animation: loop-spin 40s linear infinite; }
+
+/* Punto "en vivo" con anillo */
+@keyframes loop-pulse {
+  0% { box-shadow: 0 0 0 0 var(--pulse, rgb(0 0 0 / 0.3)); }
+  70%, 100% { box-shadow: 0 0 0 10px transparent; }
+}
+.loop-pulse { animation: loop-pulse 2.4s var(--ease-out) infinite; }
+
+/* Elemento que pasa a su estado "seleccionado" tras un retardo */
+.motion .rv-select {
+  transition:
+    background-color 300ms ease var(--d, 0ms),
+    color 300ms ease var(--d, 0ms),
+    border-color 300ms ease var(--d, 0ms);
+}
+.motion [data-inview="false"] .rv-select {
+  background-color: #fff;
+  color: var(--foreground);
+  border-color: var(--color-surface-200);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion .rv,
+  .motion .rv-select {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .motion [data-inview="true"] .loop-ping,
+  .loop-float,
+  .loop-float-sm,
+  .loop-tap,
+  .loop-press,
+  .loop-pulse,
+  .loop-spin {
+    animation: none;
+  }
+}
+
+/* Subrayado que se dibuja al hover */
+.underline-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 200ms var(--ease-out), color 200ms ease;
+}
+.underline-draw:hover {
+  background-size: 100% 1px;
+}
+
+/* Tilt 3D del phone (reference: rotateY(-8deg) rotateX(12deg) rotateZ(2deg)) */
+.mockup-perspective {
+  perspective: 1400px;
+}
+.tilted-phone {
+  transform: rotateY(-8deg) rotateX(12deg) rotateZ(2deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+.tilted-phone:hover {
+  transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateY(-8px);
+}
+
+/* Botón activo del simulador (reference .act-btn) */
+.act-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.act-btn:hover {
+  border-color: #000000;
+  transform: translateY(-1px);
+}
+.act-btn.active {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+/* Tech grid del reference (radial-gradient 1px @ 28px) */
+.tech-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
