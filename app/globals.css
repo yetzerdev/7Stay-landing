@@ -90,10 +90,10 @@
   --shadow-float: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.06);
   --shadow-phone: 0 40px 90px -20px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
 
-  /* Tipografía: "Stay" (wordmark) → Aveton; el resto → TikTok Sans + Geist */
+  /* Tipografía: "Stay" (wordmark) → Anton; el resto → TikTok Sans + Geist */
   --font-sans: "TikTok Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-tiktok: "TikTok Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-aveton: var(--font-aveton), ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: var(--font-anton), "Anton", Impact, "Arial Narrow", sans-serif;
   --font-geist: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 }
 

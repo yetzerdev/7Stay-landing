@@ -28,7 +28,7 @@ export function Footer() {
           <div style={d(0)} className="rv">
             <Link href="/" className="inline-flex items-center" aria-label="Seven Stay, inicio">
               <Image src="/LOGO.png" alt="" width={36} height={36} className="h-9 w-auto" />
-              <span className="ml-1 font-aveton text-2xl leading-none tracking-tight text-foreground">
+              <span className="ml-1 font-wordmark text-2xl leading-none tracking-tight text-foreground">
                 Stay
               </span>
             </Link>

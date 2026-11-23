@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
-import { Geist } from "next/font/google";
+import Script from "next/script";
+import { Anton, Geist } from "next/font/google";
 import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { SITE_URL } from "@/lib/site";
 
-// "Stay" (wordmark) → Aveton (fuente local del proyecto)
-const aveton = localFont({
-  src: "../public/fonts/AvetonRegular-MARon.ttf",
+const GTM_ID = "GTM-PMXP2LXZ";
+
+// "Stay" (wordmark) → Anton
+const anton = Anton({
+  subsets: ["latin"],
   weight: "400",
-  variable: "--font-aveton",
+  variable: "--font-anton",
+  display: "swap",
 });
 
 // Geist (Vercel) — fallback / secondary
@@ -70,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${aveton.variable} ${geist.variable}`}
+      className={`${anton.variable} ${geist.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -91,6 +94,20 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-src"
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
       </body>
     </html>
   );

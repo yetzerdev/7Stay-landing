@@ -124,7 +124,7 @@ export default function Home() {
                 height={40}
                 className="h-[0.95em] w-auto"
               />
-              <span className="ml-[0.06em] font-aveton font-normal tracking-tight">
+              <span className="ml-[0.06em] font-wordmark font-normal tracking-tight">
                 Stay
               </span>
             </span>
