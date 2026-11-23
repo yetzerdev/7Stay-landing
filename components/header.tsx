@@ -26,7 +26,7 @@ export function Header() {
         {/* Actions */}
         <nav className="flex items-center gap-3">
           <Link
-            href="/acceso"
+            href="https://seven-stay.vercel.app/panel/login"
             className="underline-draw px-3 py-2 font-sans text-sm font-medium text-foreground/80 hover:text-foreground"
           >
             Acceso

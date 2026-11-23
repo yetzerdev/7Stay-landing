@@ -98,7 +98,7 @@ export default function Services() {
             <button className="btn-step rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground shadow-sm transition-all">
               Agendar Demo Gratis
             </button>
-            <a href="/acceso" className="inline-flex items-center rounded-full border border-border px-6 py-3 font-medium text-foreground transition-colors hover:bg-accent">
+            <a href="https://seven-stay.vercel.app/panel/login" className="inline-flex items-center rounded-full border border-border px-6 py-3 font-medium text-foreground transition-colors hover:bg-accent">
               Ver Planes
               <span className="ml-2">→</span>
             </a>

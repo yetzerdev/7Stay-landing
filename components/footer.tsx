@@ -12,7 +12,7 @@ const NAV = [
   { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#caracteristicas", label: "Características" },
   { href: "#fundadores", label: "Hoteles Fundadores" },
-  { href: "/acceso", label: "Acceso" },
+  { href: "https://seven-stay.vercel.app/panel/login", label: "Acceso" },
 ];
 
 const CONTACT = [
